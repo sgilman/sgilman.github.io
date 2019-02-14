@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jQCloud Example</title>
+    <link rel="stylesheet" type="text/css" href="jqcloud.css" />
+    <style>
+      body {
+        font-family: "Lucida Console", "Lucida Sans Typewriter", monaco, "Bitstream Vera Sans Mono", monospace;
+      };
+    </style>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script type="text/javascript" src="jqcloud-1.0.4.js"></script>
+    <script type="text/javascript">
+      /*!
+       * Create an array of word objects, each representing a word in the cloud
+       */
+      var all_word_array = [
+          {
+            "text": "🙈",
+            "weight": 38
+          },
+          {
+            "text": "🍆",
+            "weight": 3
+          },
+          {
+            "text": "💦",
+            "weight": 3
+          },
+          {
+            "text": "👴🏻",
+            "weight": 3
+          },
+          {
+            "text": "😂",
+            "weight": 124
+          },
+          {
+            "text": "😅",
+            "weight": 15
+          },
+          {
+            "text": "😑",
+            "weight": 56
+          },
+          {
+            "text": "😭",
+            "weight": 43
+          },
+          {
+            "text": "👏",
+            "weight": 10
+          },
+          {
+            "text": "❤️",
+            "weight": 13
+          },
+          {
+            "text": "🙄",
+            "weight": 5
+          },
+          {
+            "text": "🤦",
+            "weight": 14
+          },
+          {
+            "text": "🙃",
+            "weight": 1
+          },
+          {
+            "text": "😡",
+            "weight": 1
+          },
+          {
+            "text": "📲",
+            "weight": 3
+          },
+          {
+            "text": "😕",
+            "weight": 2
+          },
+          {
+            "text": "🐖",
+            "weight": 1
+          },
+          {
+            "text": "🤩",
+            "weight": 1
+          },
+          {
+            "text": "☹",
+            "weight": 25
+          },
+          {
+            "text": "👀",
+            "weight": 38
+          },
+          {
+            "text": "😌",
+            "weight": 8
+          },
+          {
+            "text": "😍",
+            "weight": 6
+          },
+          {
+            "text": "🌜",
+            "weight": 1
+          },
+          {
+            "text": "🌌",
+            "weight": 1
+          },
+          {
+            "text": "♑",
+            "weight": 1
+          },
+          {
+            "text": "😬",
+            "weight": 11
+          },
+          {
+            "text": "😐",
+            "weight": 1
+          },
+          {
+            "text": ":(",
+            "weight": 99
+          },
+          {
+            "text": "😊",
+            "weight": 1
+          },
+          {
+            "text": "🍶",
+            "weight": 1
+          },
+          {
+            "text": "🤔",
+            "weight": 3
+          },
+          {
+            "text": "👋",
+            "weight": 1
+          },
+          {
+            "text": "🤷🏼",
+            "weight": 2
+          },
+          {
+            "text": "🎉",
+            "weight": 2
+          },
+          {
+            "text": "🕯️",
+            "weight": 1
+          },
+          {
+            "text": "🎈",
+            "weight": 1
+          },
+          {
+            "text": "🎂",
+            "weight": 2
+          },
+          {
+            "text": ">:(",
+            "weight": 8
+          },
+          {
+            "text": "💁",
+            "weight": 1
+          },
+          {
+            "text": "😞",
+            "weight": 2
+          },
+          {
+            "text": "😙",
+            "weight": 6
+          },
+          {
+            "text": "😃",
+            "weight": 1
+          },
+          {
+            "text": "🤗",
+            "weight": 1
+          },
+          {
+            "text": "😩",
+            "weight": 3
+          },
+          {
+            "text": "😸",
+            "weight": 1
+          },
+          {
+            "text": "😿",
+            "weight": 1
+          },
+          {
+            "text": "😱",
+            "weight": 7
+          },
+          {
+            "text": "😫",
+            "weight": 1
+          },
+          {
+            "text": "😨",
+            "weight": 1
+          },
+          {
+            "text": "🧐",
+            "weight": 4
+          },
+          {
+            "text": "💔",
+            "weight": 1
+          },
+          {
+            "text": "🍜",
+            "weight": 1
+          },
+          {
+            "text": "😢",
+            "weight": 1
+          },
+          {
+            "text": "😒",
+            "weight": 1
+          }          // ...as many words as you want
+      ];
+
+      var school_word_array = [
+  {
+    "text": ":/",
+    "weight": 1
+  },
+  {
+    "text": "💔",
+    "weight": 1
+  },
+  {
+    "text": "😭",
+    "weight": 5
+  },
+  {
+    "text": ":(",
+    "weight": 3
+  },
+  {
+    "text": "O:",
+    "weight": 2
+  }
+];
+      var home_work_array =   [
+  {
+    "text": "😢",
+    "weight": 1
+  },
+  {
+    "text": ":(",
+    "weight": 3
+  },
+  {
+    "text": "😩",
+    "weight": 2
+  },
+  {
+    "text": "😑",
+    "weight": 8
+  },
+  {
+    "text": "😱",
+    "weight": 3
+  },
+  {
+    "text": "😒",
+    "weight": 1
+  },
+  {
+    "text": "😭",
+    "weight": 1
+  },
+  {
+    "text": "🤷",
+    "weight": 1
+  }
+];
+
+      $(function() {
+        // When DOM is ready, select the container element and call the jQCloud method, passing the array of words as the first argument.
+        $("#all_emojis").jQCloud(all_word_array);
+        $('#school_emojis').jQCloud(school_word_array);
+        $('#home_emojis').jQCloud(home_work_array);
+      });
+    </script>
+
+
+
+
+
+
+
+
+
+  </head>
+  <body>
+    <!-- You should explicitly specify the dimensions of the container element -->
+    <h2>Emojicloud</h2>
+   <div id="all_emojis" style="width: 550px; height: 350px;"></div>
+   <p>This emojicloud represents all emojis that Collyn Chan and I used in our WhatsApp conversations since September 2018. Using the TextBlob natural language processing package in python, I extracted and counted emojis from our conversation.</p>
+   <h2>Emojicloud: school</h2>
+
+    <div id="school_emojis" style="width: 550px; height: 350px;"></div>
+    <p>By matching times from my Google Maps Timeline history to message times, I extracted emojis from messages sent while I was at MIT from 2/11/19 - 2/13/19.</p>
+    <h2>Emojicloud: home</h2>
+   <div id="home_emojis" style="width: 550px; height: 350px;"></div>
+   <p>Using the same technique, I extracted emojis sent when I was home over the same 3 days.</p>
+  </body>
+</html>
